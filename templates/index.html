@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Matching Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="brand">
+                <img src="{{ url_for('static', filename='KMITL_Logo.png') }}" alt="Logo" class="navbar-logo">
+                <a href="/" class="logo" >Skill Matcher</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://curriculum.kmitl.ac.th/">Data</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Skill Matching Application</h1>
+        <form method="POST" id="skills-form">
+            <h3>Enter your skill scores (1-10):</h3>
+            {% for skill in skills %}
+                <label for="{{ skill }}">{{ skill }}: <span id="{{ skill }}-value">{{ request.form.get(skill, 5) }}</span></label>
+                <input type="range" name="{{ skill }}" min="1" max="10" value="{{ request.form.get(skill, 5) }}" oninput="updateValue(this)" required>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+
+        {% if results %}
+            <h3 id="results">Recommended Programs:</h3>
+
+            <!-- Show the most matched result as a card -->
+            {% if results|length > 0 %}
+            <div class="card">
+                <h4>Top Match</h4>
+                <p><strong>{{ results[0][0] }}</strong></p>
+                <p>Similarity Score: {{ results[0][1] }}</p>
+            </div>
+            <p>*หมายเหตุ ข้อมูลที่แสดงเป็นเพียงแค่การคาดคะเนเท่านั้น</p>
+            {% endif %}
+            <div class="card2">
+                <ul>
+                    {% for program, similarity in results %}
+                    <li class="result-item">
+                        <span>{{ program }}</span>
+                        <span>Similarity Score</span>
+                        <span>:{{ similarity }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function updateValue(slider) {
+            const label = document.getElementById(`${slider.name}-value`);
+            label.textContent = slider.value;
+        }
+    </script>
+</body>
+</html>

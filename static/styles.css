@@ -1,0 +1,328 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg , #ffd1a3, #fdd3c4);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Style for result items */
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ffd1a3;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap if space is limited */
+}
+
+/* Ensure that all span elements are aligned left */
+.result-item span {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Responsive adjustments for result items */
+.result-item span:nth-child(1) {
+    flex: 1; /* ให้ชื่อโปรแกรมขยาย */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.result-item span:nth-child(2),
+.result-item span:nth-child(3) {
+    flex: 0; /* จำกัดขนาดของส่วนคะแนน */
+    min-width: 120px; /* กำหนดความกว้างขั้นต่ำ */
+    text-align: right; /* ชิดขวาเพื่อจัดแสดง */
+}
+
+/* ป้องกันข้อความยาวเกินไป */
+.result-item span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+h1 {
+    color: #ff7f50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    background-color: #ffe5cc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ffb380;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff7f50;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff7f50;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e67300;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f8be83;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+p {
+    color: red;
+    font-weight: bold;
+}
+
+/* Card style */
+.card {
+    background-color: rgba(255, 237, 213, 0.9); /* เพิ่มความโปร่งแสง */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px 0;
+    width: 550px;
+}
+
+.card2 {
+    background-color: rgba(255, 237, 213, 0.9); /* เพิ่มความโปร่งแสง */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px 0;
+    width: 700px;
+}
+
+/* Form styles */
+form {
+    background-color: rgba(255, 229, 204, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.card h4 {
+    color: #ff7f50;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.card p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #ff7f50;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    font-size: 1em; /* Ensure font size can be adjusted */
+}
+
+.nav-links a:hover {
+    background-color: #e67300;
+    border-radius: 5px;
+}
+
+/* Style for the logo image */
+.navbar-logo {
+    width: 90px;  /* Adjust size of the logo */
+    height: 50px; /* Adjust size of the logo */
+    object-fit: contain;
+    margin-left: 20px; /* Add space between nav-links and logo */
+    margin-right: 20px;
+}
+
+
+/* Adjust content to be centered */
+.content {
+    padding-top: 80px; /* Default padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .result-item {
+        font-size: 0.9em; /* ลดขนาดฟอนต์ */
+        padding: 8px;
+    }
+
+    .card, .card2 {
+        width: 90%; /* ใช้พื้นที่มากขึ้นบนหน้าจอขนาดเล็ก */
+    }
+
+    .navbar .container {
+        padding: 0 10px;
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .brand, .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-logo {
+        width: 70px; /* ลดขนาดโลโก้ */
+        height: 40px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .card h4 {
+        font-size: 1.2em;
+    }
+
+    li, .result-item span {
+        font-size: 0.9em;
+    }
+
+    .content {
+        padding-top: 100px; /* เพิ่มพื้นที่บนสุด */
+    }
+}
+
+@media (max-width: 480px) {
+    .result-item {
+        font-size: 0.8em;
+        flex-direction: column; /* Stack items vertically on very small screens */
+        align-items: flex-start; /* Ensure items align left */
+    }
+
+    .card, .card2 {
+        width: 95%; /* ใช้พื้นที่มากขึ้นบนหน้าจอขนาดเล็ก */
+    }
+
+    .navbar-logo {
+        width: 60px; /* ลดขนาดโลโก้ */
+        height: 30px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .card h4 {
+        font-size: 1em;
+    }
+
+    li, .result-item span {
+        font-size: 0.8em;
+    }
+
+    .content {
+        padding-top: 110px; /* เพิ่มพื้นที่บนสุด */
+    }
+}
