@@ -5,14 +5,13 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Define the 11 predefined skills
 skills_list = [
     "Active Learning", "Analytical", "Communication", "Complex problem solving",
     "Creativity", "Digital quotience literacy", "Entrepreneurship", "Integrity",
     "Interpersonal Skills", "Leadership", "Resilience"
 ]
 
-# Function to read the CSV and extract skill data
+
 def read_csv(file_name):
     try:
         if not os.path.exists(file_name):
@@ -22,28 +21,28 @@ def read_csv(file_name):
         try:
             with open(file_name, newline='', encoding='utf-8') as csvfile:
                 reader = csv.reader(csvfile)
-                next(reader)  # Skip header
+                next(reader)
                 programs_data = []
                 for row in reader:
                     program_name = row[0]
-                    skill_scores = np.array(list(map(int, row[1:12])))  # Convert to numpy array
+                    skill_scores = np.array(list(map(int, row[1:12]))) 
                     programs_data.append((program_name, skill_scores))
                 return programs_data
         except UnicodeDecodeError:
             print("UTF-8 encoding failed, trying ISO-8859-1 encoding...")
             with open(file_name, newline='', encoding='ISO-8859-1') as csvfile:
                 reader = csv.reader(csvfile)
-                next(reader)  # Skip header
+                next(reader)
                 programs_data = []
                 for row in reader:
                     program_name = row[0]
-                    skill_scores = np.array(list(map(int, row[1:12])))  # Convert to numpy array
+                    skill_scores = np.array(list(map(int, row[1:12])))  
                     programs_data.append((program_name, skill_scores))
                 return programs_data
     except Exception as e:
         print(f"An error occurred: {str(e)}")
 
-# Function to calculate cosine similarity using numpy
+
 def cosine_similarity(vector1, vector2):
     dot_prod = np.dot(vector1, vector2)
     magnitude1 = np.linalg.norm(vector1)
@@ -53,9 +52,8 @@ def cosine_similarity(vector1, vector2):
         return 0.0
     return dot_prod / (magnitude1 * magnitude2)
 
-# Main function for comparison
 def get_similarity_results(user_vector):
-    csv_file_name = 'skillmapping.csv'  # Adjust path accordingly
+    csv_file_name = 'skillmapping.csv'
     programs_data = read_csv(csv_file_name)
     
     if programs_data is None:
@@ -68,7 +66,7 @@ def get_similarity_results(user_vector):
 
     return sorted(similarities, key=lambda x: x[1], reverse=True)
 
-# Flask route for the form
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
