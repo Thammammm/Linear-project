@@ -26,8 +26,8 @@
         <form method="POST" id="skills-form">
             <h3>Enter your skill scores (1-10):</h3>
             {% for skill in skills %}
-                <label for="{{ skill }}">{{ skill }}: <span id="{{ skill }}-value">{{ request.form.get(skill, 5) }}</span></label>
-                <input type="range" name="{{ skill }}" min="1" max="10" value="{{ request.form.get(skill, 5) }}" oninput="updateValue(this)" required>
+                <label for="{{ skill }}">{{ skill }}: <span id="{{ skill }}-value">{{ request.form.get(skill, 1) }}</span></label>
+                <input type="range" name="{{ skill }}" min="1" max="10" value="{{ request.form.get(skill, 1) }}" oninput="updateValue(this)" required>
             {% endfor %}
             <button type="submit">Submit</button>
         </form>
