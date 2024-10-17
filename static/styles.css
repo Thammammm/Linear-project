@@ -241,7 +241,6 @@ form {
     margin-right: 20px;
 }
 
-
 /* Adjust content to be centered */
 .content {
     padding-top: 80px; /* Default padding */
@@ -273,6 +272,13 @@ form {
         align-items: center;
     }
 
+    .navbar .menu-icon {
+        display: block; /* แสดงไอคอนเมนู */
+        font-size: 1.5em;
+        color: white;
+        cursor: pointer;
+    }
+
     .navbar-logo {
         width: 70px; /* ลดขนาดโลโก้ */
         height: 40px;
@@ -297,13 +303,14 @@ form {
 
 @media (max-width: 480px) {
     .result-item {
-        font-size: 0.8em;
+        font-size: 0.9em;
         flex-direction: column; /* Stack items vertically on very small screens */
         align-items: flex-start; /* Ensure items align left */
+        padding: 5px;
     }
 
-    .card, .card2 {
-        width: 95%; /* ใช้พื้นที่มากขึ้นบนหน้าจอขนาดเล็ก */
+    .card, .card2, form {
+        width: 90%; /* ใช้พื้นที่มากขึ้นบนหน้าจอขนาดเล็ก */
     }
 
     .navbar-logo {
@@ -321,6 +328,10 @@ form {
 
     li, .result-item span {
         font-size: 0.8em;
+    }
+
+    button {
+        font-size: 0.9em; /* ลดขนาดฟอนต์ของปุ่ม */
     }
 
     .content {
